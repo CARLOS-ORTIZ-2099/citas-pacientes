@@ -1,4 +1,5 @@
 import { LocalStorage } from "./localStorage.js"
+import { fieldsEmpty, addPatient } from "../helpers/alerts.js"
 
 export class Manage {
     #patients = LocalStorage.getStoragePatients() || []
@@ -16,13 +17,14 @@ export class Manage {
         // crear pacientes
         this.#patients.push(data) 
         LocalStorage.setStoragePatients(this.#patients)
+        addPatient()
     }
 
     verifyCreation(value) {
         // verificar que los campos de formulario esten todos llenos
         let valuesFromData = Object.values(value)
         if(valuesFromData.some(inputData => inputData === '')){
-            alert('todos los campos son obligatorios')
+            fieldsEmpty('todos los campos son obligatorios')
             return false
         }
        // this.createPatients(value)

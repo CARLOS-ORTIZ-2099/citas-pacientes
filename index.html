@@ -4,35 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="">
 
+ 
+   <div class="container-father">
+    
     <section class="form-section">
+        
+      
+    
+        <form class="row form">
+            <div class="col-12">
+                <label for="name">name pet</label>
+                <input name="name" class="form-control name" id="name" type="text" placeholder="name pet">
+            </div>
 
-        <form class="form">
-            <label for="name">name pet</label>
-            <input name="name" class="name" id="name" type="text" placeholder="name pet">
+            <div class="col-12">
+                <label for="owner">name owner</label>
+                <input name="owner" class="form-control owner" id="owner" type="text" placeholder="name owner">
 
-            <label for="owner">name owner</label>
-            <input name="owner" class="owner" id="owner" type="text" placeholder="name owner">
+            </div>
+            
+            <div class="col-12">
+                <label for="email">email</label>
+            <input name="email" class="form-control email" id="email" type="email" placeholder="email">
+            </div>
 
-            <label for="email">email</label>
-            <input name="email" class="email" id="email" type="email" placeholder="email">
+            <div class="col-12">
+                <label >hight</label>
+            <input name="date" class="form-control date" id="date" type="date">
+            </div>
 
-            <label >hight</label>
-            <input name="date" class="date" id="date" type="date">
-
+           <div class="col-12">
             <label for="symptoms">sintomas</label>
-            <textarea name="symptoms"  class="symptoms" id="symptoms" cols="30" rows="10"></textarea>
+            <textarea name="symptoms"  class="form-control symptoms" id="symptoms" cols="30" rows="10"></textarea>
+           </div>
 
-            <input class="buttonAction" type="submit" value="send Data">
+            <div class="col-12">
+                <input class="d-block my-3 mx-auto btn btn-primary buttonAction fs-3" type="submit" value="agregar paciente">
+            </div>
         </form>
 
     </section>
 
 
     <section class="patients-section">
+        
       <!--   <div class="patient-item">
             <h1>nombre ${patient.name}</h1>
             <h1>propietario ${patient.owner}</h1>
@@ -44,10 +64,12 @@
         </div> -->
     </section>
 
+   </div> 
+    
 
   
     
-
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js" type="module"></script>
 </body>
 </html>

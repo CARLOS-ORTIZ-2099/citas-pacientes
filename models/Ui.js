@@ -10,18 +10,21 @@ export class Ui {
     renderPatients(patient) {
             const div = document.createElement('div')
             div.classList.add('patient-item')
+            
             console.log(patient);
         
             div.innerHTML = `
-            <div class="patient-div">
-               <h1>${patient.id}</h1>
-                <h1>nombre ${patient.name}</h1>
-                <h1>propietario ${patient.owner}</h1>
-                <h1>email ${patient.email}</h1>
-                <h1>fecha alta ${patient.date} </h1>
-                <h1>sintomas ${patient.symptoms}</h1>
-                <button class = 'edit' data-editPatient=${patient.id}>editar</button>
-                <button class = 'delete' data-deletePatient = ${patient.id}>eliminar</button>
+            <div class="patient-div ">
+               <p>${patient.id}</p>
+                <p><span class = 'fw-bold text-capitalize'>nombre</span> ${patient.name}</p>
+                <p><span class = 'fw-bold text-capitalize'>propietario</span> ${patient.owner}</p>
+                <p><span class = 'fw-bold text-capitalize'>email</span> ${patient.email}</p>
+                <p><span class = 'fw-bold text-capitalize'>fecha alta</span>  ${patient.date} </p>
+                <p ><span class = 'fw-bold text-capitalize'>sintomas</span> ${patient.symptoms}</p>
+               <div class ='container-buttons'>
+               <button class = 'edit btn btn-warning' data-editPatient=${patient.id}>editar</button>
+               <button class = 'delete  btn btn-danger' data-deletePatient = ${patient.id}>eliminar</button>
+               </div>
             </div>
             `
         
@@ -72,7 +75,7 @@ export class Ui {
 
     resetDataEdit() {
         this.dataEdit = {editMode: false, idPatient:''}
-        this.button.value = 'send Data'
+        this.button.value = 'agregar paciente'
         this.form.reset()
     }
 
@@ -82,14 +85,16 @@ export class Ui {
                 text+= `
                     <div class = 'patient-item'>
                     <div class="patient-div">
-                    <h1>${patient.id}</h1>
-                     <h1>nombre ${patient.name}</h1>
-                     <h1>propietario ${patient.owner}</h1>
-                     <h1>email ${patient.email}</h1>
-                     <h1>fecha alta ${patient.date} </h1>
-                     <h1>sintomas ${patient.symptoms}</h1>
-                     <button class = 'edit' data-editPatient=${patient.id}>editar</button>
-                     <button class = 'delete' data-deletePatient = ${patient.id}>eliminar</button>
+                    <p>${patient.id}</p>
+                     <p><span class = 'fw-bold text-capitalize'>nombre</span> ${patient.name}</p>
+                     <p><span class = 'fw-bold text-capitalize'>propietario</span> ${patient.owner}</p>
+                     <p><span class = 'fw-bold text-capitalize'>email</span> ${patient.email}</p>
+                     <p><span class = 'fw-bold text-capitalize'>fecha alta</span> ${patient.date} </p>
+                     <p><span class = 'fw-bold text-capitalize'>sintomas</span> ${patient.symptoms}</p>
+                     <div class ='container-buttons'>
+                    <button class = 'edit btn btn-warning' data-editPatient=${patient.id}>editar</button>
+                    <button class = 'delete  btn btn-danger' data-deletePatient = ${patient.id}>eliminar</button>
+                    </div>
                  </div>
                     </div>
                 `
