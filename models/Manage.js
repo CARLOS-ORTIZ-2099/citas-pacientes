@@ -1,5 +1,7 @@
+import { LocalStorage } from "./localStorage.js"
+
 export class Manage {
-    #patients = []
+    #patients = LocalStorage.getStoragePatients() || []
     constructor() {
         
     }
@@ -13,6 +15,7 @@ export class Manage {
     createPatients(data) {
         // crear pacientes
         this.#patients.push(data) 
+        LocalStorage.setStoragePatients(this.#patients)
     }
 
     verifyCreation(value) {
@@ -29,13 +32,15 @@ export class Manage {
     editPatients(id, data) {
         // editar pacientes
         this.#patients = this.#patients.map(patient => patient.id === id ? {...patient, ...data}: patient)
-        console.log(this.#patients);
+       // console.log(this.#patients);
+       LocalStorage.setStoragePatients(this.#patients)
     }
 
 
     deletePatients(id) {
         // eliminar pacientes
         this.#patients = this.#patients.filter(patient => patient.id !== id)
+        LocalStorage.setStoragePatients(this.#patients)
     }
 
 }

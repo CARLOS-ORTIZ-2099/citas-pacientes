@@ -5,7 +5,6 @@ const form = document.querySelector('.form')
 const patientsSection = document.querySelector('.patients-section')
 const manage = new Manage()
 const ui = new Ui(manage)
-
 form.addEventListener('submit', sendData)
 
 function sendData(e) {
@@ -19,6 +18,7 @@ function sendData(e) {
             manage.createPatients(data)
             ui.resetDataEdit()   
         }
+        console.log(manage);
     }
     else{
         if(manage.verifyCreation(ui.dataForm())){
@@ -27,12 +27,16 @@ function sendData(e) {
            ui.resetDataEdit()
         }   
         console.log(manage.getPatients());
-    }
-    
+        console.log(manage);
+    }  
 }
 
 patientsSection.addEventListener('click', (e) => ui.actions(e) )
 
+document.addEventListener('DOMContentLoaded', (e) => {
+    console.log(manage);
+    ui.replacePatient(manage.getPatients())
+})
 
 /* NOTA SOBRE FORMDATA
    new Formdata sirve para instanciar un objeto con los campos del formulario que se le pasa como parametro, recalcar que estos campos tienen que tener el atributo name

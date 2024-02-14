@@ -43,7 +43,8 @@ export class Ui {
         let fatherContainer = e.target.closest('.patient-item')
         fatherContainer.remove()
         this.manageInstance.deletePatients(id)
-        console.log(this.manageInstance.getPatients());             
+        this.resetDataEdit()
+       // console.log(this.manageInstance.getPatients());             
     }
 
 
@@ -60,7 +61,7 @@ export class Ui {
         this.form.symptoms.value = patientFind.symptoms
         this.button.value = 'edit'
         this.dataEdit = {...this.dataEdit, editMode:true, idPatient: id}
-        console.log(this.dataEdit);
+      //  console.log(this.dataEdit);
     }
 
     dataForm() {
@@ -71,7 +72,7 @@ export class Ui {
 
     resetDataEdit() {
         this.dataEdit = {editMode: false, idPatient:''}
-        this.button.value = 'send data'
+        this.button.value = 'send Data'
         this.form.reset()
     }
 
