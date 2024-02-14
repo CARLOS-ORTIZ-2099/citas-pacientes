@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section class="form-section">
+
+        <form class="form">
+            <label for="name">name pet</label>
+            <input name="name" class="name" id="name" type="text" placeholder="name pet">
+
+            <label for="owner">name owner</label>
+            <input name="owner" class="owner" id="owner" type="text" placeholder="name owner">
+
+            <label for="email">email</label>
+            <input name="email" class="email" id="email" type="email" placeholder="email">
+
+            <label >hight</label>
+            <input name="date" class="date" id="date" type="date">
+
+            <label for="symptoms">sintomas</label>
+            <textarea name="symptoms"  class="symptoms" id="symptoms" cols="30" rows="10"></textarea>
+
+            <input class="buttonAction" type="submit" value="send Data">
+        </form>
+
+    </section>
+
+
+    <section class="patients-section">
+        <div class="patient-item">
+            <h1>nombre ${patient.name}</h1>
+            <h1>propietario ${patient.owner}</h1>
+            <h1>email ${patient.email}</h1>
+            <h1>fecha alta ${patient.date} </h1>
+            <h1>sintomas ${patient.symptoms}</h1>
+            <button class="edit" data-editPatient="1">editar</button>
+            <button class="delete" data-deletePatient = "1">eliminar</button>
+        </div>
+    </section>
+
+
+    
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>
