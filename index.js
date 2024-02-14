@@ -14,10 +14,19 @@ function sendData(e) {
         const formData = new FormData(form)
         formData.append('id', crypto.randomUUID())
         const data = Object.fromEntries(formData.entries())
-        manage.verifyCreation(data) ? ui.renderPatients(data) : ''
-        console.log(data);
-    }else{
-        manage.editPatients(ui.dataEdit.idPatient, ui.dataForm())
+        if(manage.verifyCreation(data)){
+            ui.renderPatients(data)     
+            manage.createPatients(data)
+            ui.resetDataEdit()   
+        }
+    }
+    else{
+        if(manage.verifyCreation(ui.dataForm())){
+           manage.editPatients(ui.dataEdit.idPatient, ui.dataForm())
+           ui.replacePatient(manage.getPatients())
+           ui.resetDataEdit()
+        }   
+        console.log(manage.getPatients());
     }
     
 }

@@ -22,7 +22,7 @@ export class Manage {
             alert('todos los campos son obligatorios')
             return false
         }
-        this.createPatients(value)
+       // this.createPatients(value)
         return true
     }
 

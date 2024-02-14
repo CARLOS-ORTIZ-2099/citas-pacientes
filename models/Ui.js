@@ -48,8 +48,8 @@ export class Ui {
 
 
     editPatient(e) {
+        console.log(e.target);
         let id = e.target.dataset.editpatient
-       // console.log(this.form.name.value = 'hola');
         const patients = this.manageInstance.getPatients()
         const patientFind = patients.find(patient => patient.id === id)
         console.log(patientFind);
@@ -69,7 +69,30 @@ export class Ui {
         return data
     }
 
-    replacePatient(){
+    resetDataEdit() {
+        this.dataEdit = {editMode: false, idPatient:''}
+        this.button.value = 'send data'
+        this.form.reset()
+    }
 
+    replacePatient(data){
+        let text = ''
+        data.forEach((patient) => {
+                text+= `
+                    <div class = 'patient-item'>
+                    <div class="patient-div">
+                    <h1>${patient.id}</h1>
+                     <h1>nombre ${patient.name}</h1>
+                     <h1>propietario ${patient.owner}</h1>
+                     <h1>email ${patient.email}</h1>
+                     <h1>fecha alta ${patient.date} </h1>
+                     <h1>sintomas ${patient.symptoms}</h1>
+                     <button class = 'edit' data-editPatient=${patient.id}>editar</button>
+                     <button class = 'delete' data-deletePatient = ${patient.id}>eliminar</button>
+                 </div>
+                    </div>
+                `
+        })
+        this.patientsSection.innerHTML = text    
     }
 }
